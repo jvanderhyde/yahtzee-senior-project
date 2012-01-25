@@ -19,24 +19,55 @@ public class Dice
     private static int[] allDice = new int[5];
 
     //
-    public static int[] roleDice()
+    public static int[] rollAllDice()
     {
-        die1 = randNum.nextInt(6)+1;
-        die2 = randNum.nextInt(6)+1;
-        die3 = randNum.nextInt(6)+1;
-        die4 = randNum.nextInt(6)+1;
-        die5 = randNum.nextInt(6)+1;
-
+                
         for (int i=0; i<5; i++)
         {
-            allDice[i] = die1;
+            int die = randNum.nextInt(6)+1;
+            allDice[i] = die;
         }
 
         return allDice;
     }
 
+    public static int rollDie1()
+    {
+        die1 = randNum.nextInt(6)+1;
+
+        return die1;
+    }
+
+    public static int rollDie2()
+    {
+        die2 = randNum.nextInt(6)+1;
+
+        return die2;
+    }
+
+    public static int rollDie3()
+    {
+        die3 = randNum.nextInt(6)+1;
+
+        return die3;
+    }
+
+    public static int rollDie4()
+    {
+        die4 = randNum.nextInt(6)+1;
+
+        return die4;
+    }
+
+    public static int rollDie5()
+    {
+        die5 = randNum.nextInt(6)+1;
+
+        return die5;
+    }
+
     public static void main(String args[])
     {
-        System.out.println(roleDice());
+        System.out.println(rollAllDice());
     }
 }
