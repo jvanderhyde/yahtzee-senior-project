@@ -8,5 +8,11 @@
 
 public class ScoreController
 {
-    
+   
+    public int firstRoll()
+    {
+        int[] firstRoll = Dice.rollAllDice();
+
+        return;
+    }
 }
