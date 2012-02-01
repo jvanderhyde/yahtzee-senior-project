@@ -8,11 +8,22 @@
 
 public class ScoreController
 {
-   
-    public int firstRoll()
+    private int d1;
+    private int d2;
+    private int d3;
+    private int d4;
+    private int d5;
+
+    public void firstRoll()
     {
         int[] firstRoll = Dice.rollAllDice();
 
-        return;
+        d1 = firstRoll[0];
+        d2 = firstRoll[1];
+        d3 = firstRoll[2];
+        d4 = firstRoll[3];
+        d5 = firstRoll[4];
+
+        
     }
 }
