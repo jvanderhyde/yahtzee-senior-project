@@ -50,10 +50,18 @@ public class welcomeMenu
                 gameModeMenu g = new gameModeMenu();
                 frame.setVisible(false);
 
+                
             }
         });
         loadGame = new JButton("Load Game");
         quit = new JButton("Quit Game");
+        quit.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                frame.dispose();
+            }
+        });
         jp1.add(newGame);
         jp1.add(loadGame);
         jp1.add(quit);
