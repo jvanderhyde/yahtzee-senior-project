@@ -9,6 +9,8 @@
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -41,6 +43,15 @@ public class welcomeMenu
         JPanel jp1 = new JPanel();
         jp1.setLayout(new GridLayout(4,1));
         newGame = new JButton("New Game");
+        newGame.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e) {
+                gameModeMenu g = new gameModeMenu();
+                frame.setVisible(false);
+
+            }
+        });
         loadGame = new JButton("Load Game");
         quit = new JButton("Quit Game");
         jp1.add(newGame);
@@ -51,6 +62,7 @@ public class welcomeMenu
         frame.add(jp);
         frame.setVisible(true);
     }
+
 
 
 }
