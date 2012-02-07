@@ -8,6 +8,8 @@
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /**
@@ -35,6 +37,12 @@ public class soloPlayMenu
         JLabel jl1 = new JLabel("User Name");
         JTextField jt = new JTextField();
         JButton jb = new JButton("Start Game");
+        jb.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Not supported yet.");
+            }
+        });
         JPanel jp1 = new JPanel();
         jp1.setLayout(new GridLayout(4,1));
         jp1.add(jl1);
