@@ -49,7 +49,7 @@ public class welcomeMenu
             public void actionPerformed(ActionEvent e) {
                 gameModeMenu g = new gameModeMenu();
                 frame.setVisible(false);
-
+                frame.dispose();
                 
             }
         });
