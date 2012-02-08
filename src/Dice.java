@@ -2,7 +2,7 @@
  * Yahtzee dice class
  * John Bohovic
  * Started          1-18-2012
- * Last Modified    1-18-2012
+ * Last Modified    1-25-2012
  */
 
 
@@ -10,15 +10,14 @@ import java.util.Random;
 
 public class Dice
 {
-    private static int die1;
-    private static int die2;
-    private static int die3;
-    private static int die4;
-    private static int die5;
+    private static int oneDie;    
     private static Random randNum = new Random();
     private static int[] allDice = new int[5];
 
-    //
+    /*
+     * Roll all 5 dice at once and return
+     * values as an array of ints.
+     */
     public static int[] rollAllDice()
     {
                 
@@ -31,43 +30,41 @@ public class Dice
         return allDice;
     }
 
-    public static int rollDie1()
+    /*
+     * Roll one die at a time and return the value
+     */
+    public static int rollOneDie()
     {
-        die1 = randNum.nextInt(6)+1;
+        oneDie = randNum.nextInt(6)+1;
 
-        return die1;
+        return oneDie;
     }
 
-    public static int rollDie2()
-    {
-        die2 = randNum.nextInt(6)+1;
-
-        return die2;
-    }
-
-    public static int rollDie3()
-    {
-        die3 = randNum.nextInt(6)+1;
-
-        return die3;
-    }
-
-    public static int rollDie4()
-    {
-        die4 = randNum.nextInt(6)+1;
-
-        return die4;
-    }
-
-    public static int rollDie5()
-    {
-        die5 = randNum.nextInt(6)+1;
-
-        return die5;
-    }
-
+    
     public static void main(String args[])
     {
-        System.out.println(rollAllDice());
+        int[] test;
+        int die;
+        test = rollAllDice();
+        
+        for (int i=0; i<test.length; i++)
+        {
+            System.out.print(test[i] + " ");
+        }
+
+        System.out.println();
+        System.out.println();
+
+        die = rollOneDie();
+        System.out.println(die);
+        
+        die = rollOneDie();
+        System.out.println(die);
+
+        die = rollOneDie();
+        System.out.println(die);
+
+        die = rollOneDie();
+        System.out.println(die);
     }
 }
