@@ -19,7 +19,7 @@ public class scoreSheet
     public scoreSheet()
     {
         frame = new JFrame();
-        frame.setSize(300, 300);
+        frame.setSize(400,400);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         JPanel jp = new JPanel();
@@ -227,8 +227,7 @@ public class scoreSheet
         jp.add(jp3,BorderLayout.EAST);
 
         frame.add(jp);
-        frame.pack();
         frame.setVisible(true);
-        frame.pack();
+        
     }
 }
