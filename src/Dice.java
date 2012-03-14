@@ -40,7 +40,7 @@ public class Dice
         return oneDie;
     }
 
-    
+    /*
     public static void main(String args[])
     {
         int[] test;
@@ -66,5 +66,5 @@ public class Dice
 
         die = rollOneDie();
         System.out.println(die);
-    }
+    }*/
 }
