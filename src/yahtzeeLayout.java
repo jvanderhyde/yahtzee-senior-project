@@ -1,6 +1,7 @@
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.lang.Class;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,7 +19,7 @@ import javax.swing.JPanel;
 public class yahtzeeLayout 
 {
     JFrame frame;
-    //scoreSheet ss;
+
 
     public yahtzeeLayout()
     {
@@ -33,10 +34,6 @@ public class yahtzeeLayout
         jp.add(jl,BorderLayout.NORTH);
 
         // add the score sheet to the west side of the boarder layout
-        JPanel jp2 = new JPanel();
-      
-
-
         JPanel jp1 = new JPanel();
         jp1.setLayout(new GridLayout(1,6));
         JButton jb2= new JButton("Player 2");
@@ -49,7 +46,11 @@ public class yahtzeeLayout
         jp1.add(jb4);
         jp1.add(jb5);
         jp1.add(jb6);
-        jp.add(jp1, BorderLayout.SOUTH);
+        jp.add(jp1,BorderLayout.SOUTH);
+
+        JPanel jp2 = new JPanel();
+        jp2.add(new scoreSheet().frame);
+        jp.add(jp2,BorderLayout.WEST);
 
         frame.add(jp);
         frame.setVisible(true);
