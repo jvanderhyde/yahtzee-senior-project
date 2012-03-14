@@ -14,13 +14,12 @@ import javax.swing.*;
  */
 public class scoreSheet
 {
-    JFrame frame;
+    JPanel frame;
 
     public scoreSheet()
     {
-        frame = new JFrame();
-        frame.setSize(400,400);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame = new JPanel();
+        frame.setSize(300,300);
 
         JPanel jp = new JPanel();
         jp.setLayout(new BorderLayout());
