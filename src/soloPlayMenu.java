@@ -23,7 +23,7 @@ public class soloPlayMenu
      public soloPlayMenu()
     {
 
-        frame = new JFrame("Welcome Menu");
+        frame = new JFrame("SoloPlay Menu");
         frame.setSize(200, 200);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
