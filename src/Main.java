@@ -16,7 +16,7 @@ public class Main
 {
     public static void main(String[] args)
     {
-       yahtzeeLayout yl = new yahtzeeLayout();
+       scoreSheet ss = new scoreSheet();
     }
 
 }
