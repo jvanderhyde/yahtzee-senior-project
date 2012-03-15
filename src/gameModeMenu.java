@@ -39,7 +39,8 @@ public gameModeMenu()
         JPanel jp1 = new JPanel();
         jp1.setLayout(new GridLayout(4,1));
         soloPlay = new JButton("Solo Play");
-        soloPlay.addActionListener(new ActionListener() {
+        soloPlay.addActionListener(new ActionListener()
+        {
 
             public void actionPerformed(ActionEvent e) {
                 soloPlayMenu s = new soloPlayMenu();
