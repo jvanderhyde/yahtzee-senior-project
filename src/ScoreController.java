@@ -11,7 +11,8 @@ import java.util.Scanner;
 public class ScoreController 
 {
 
-    private static Roll[] rolls = new Roll[13];
+    public static Roll[] rolls = new Roll[13];
+    public static int[] score = new int[13];
 
     //All values initially set to false meaning the spaces are open
     public ScoreController()
@@ -29,6 +30,7 @@ public class ScoreController
         rolls[10] = new LargeStraight();
         rolls[11] = new Yahtzee();
         rolls[12] = new Chance();
+
     }
 
             
@@ -63,7 +65,7 @@ public class ScoreController
         int d4;
         int d5;
 
-        int[] score = new int[13];
+        
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Let's play yahtzee!");
