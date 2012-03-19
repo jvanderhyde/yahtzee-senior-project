@@ -4,7 +4,9 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.Class;
+import java.util.Arrays;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,6 +23,7 @@ import javax.swing.JPanel;
 public class yahtzeeLayout 
 {
     JFrame frame;
+    int[] firstRoll;
 
 
     public yahtzeeLayout()
@@ -60,17 +63,17 @@ public class yahtzeeLayout
 
         JPanel jp4 = new JPanel();
         jp4.setLayout(new GridLayout(1,6));
-        JButton jb7= new JButton("Die 1");
-        JButton jb8= new JButton("Die 2");
-        JButton jb9= new JButton("Die 3");
-        JButton jb10= new JButton("Die 4");
-        JButton jb11= new JButton("Die 5");
+        JCheckBox jcb7= new JCheckBox("Die 1",false);
+        JCheckBox jcb8= new JCheckBox("Die 2",false);
+        JCheckBox jcb9= new JCheckBox("Die 3",false);
+        JCheckBox jcb10= new JCheckBox("Die 4",false);
+        JCheckBox jcb11= new JCheckBox("Die 5",false);
         JButton jb12= new JButton("Roll");
-        jp4.add(jb7);
-        jp4.add(jb8);
-        jp4.add(jb9);
-        jp4.add(jb10);
-        jp4.add(jb11);
+        jp4.add(jcb7);
+        jp4.add(jcb8);
+        jp4.add(jcb9);
+        jp4.add(jcb10);
+        jp4.add(jcb11);
         jp4.add(jb12);
         jp3.add(jp4,BorderLayout.SOUTH);
 
@@ -105,7 +108,8 @@ public class yahtzeeLayout
 
             public void actionPerformed(ActionEvent e)
             {
-                 int[] firstRoll = Dice.rollAllDice();
+                 firstRoll = Dice.rollAllDice();
+                 Arrays.sort(firstRoll);
                  jl2.setText(Integer.toString(firstRoll[0]));
                  jl4.setText(Integer.toString(firstRoll[1]));
                  jl6.setText(Integer.toString(firstRoll[2]));
