@@ -164,65 +164,65 @@ public class scoreSheet
         jp3.add(jb5);
         final JLabel jls7 = new JLabel("  0");
         jp3.add(jls7);
-        JButton jb6 = new JButton("Score");
+        final JButton jb6 = new JButton("Score");
         jp3.add(jb6);
         final JLabel jls8 = new JLabel("  0");
         jp3.add(jls8);
-        JButton jb7 = new JButton("Score");
+        final JButton jb7 = new JButton("Score");
         jp3.add(jb7);
-        JLabel jls9 = new JLabel("  0");
+        final JLabel jls9 = new JLabel("  0");
         jp3.add(jls9);
         JButton jb8 = new JButton("Score");
         jp3.add(jb8);
-        JLabel jls10 = new JLabel("  0");
+        final JLabel jls10 = new JLabel("  0");
         jp3.add(jls10);
         JButton jb9 = new JButton("Score");
         jp3.add(jb9);
-        JLabel jls12 = new JLabel("  0");
+        final JLabel jls12 = new JLabel("  0");
         jp3.add(jls12);
         JButton jb10 = new JButton("Score");
         jp3.add(jb10);
-        JLabel jls13 = new JLabel("  0");
+        final JLabel jls13 = new JLabel("  0");
         jp3.add(jls13);
         JButton jb11 = new JButton("Score");
         jp3.add(jb11);
-        JLabel jls14 = new JLabel("  0");
+        final JLabel jls14 = new JLabel("  0");
         jp3.add(jls14);
         JButton jb12 = new JButton("Score");
         jp3.add(jb12);
-        JLabel jls15 = new JLabel("  0");
+        final JLabel jls15 = new JLabel("  0");
         jp3.add(jls15);
         JButton jb16 = new JButton("Score");
         jp3.add(jb16);
-         JLabel jls16 = new JLabel("  0");
+         final JLabel jls16 = new JLabel("  0");
         jp3.add(jls16);
         JButton jb17 = new JButton("Score");
         jp3.add(jb17);
-        JLabel jls17 = new JLabel("  0");
+        final JLabel jls17 = new JLabel("  0");
         jp3.add(jls17);
         JButton jb18 = new JButton("Score");
         jp3.add(jb18);
-        JLabel jls18 = new JLabel("  0");
+        final JLabel jls18 = new JLabel("  0");
         jp3.add(jls18);
         JButton jb19 = new JButton("Score");
         jp3.add(jb19);
-        JLabel jls19 = new JLabel("  0");
+        final JLabel jls19 = new JLabel("  0");
         jp3.add(jls19);
-        JButton jb20 = new JButton("Score");
+        final JButton jb20 = new JButton("Score");
         jp3.add(jb20);
-        JLabel jls20 = new JLabel("  0");
+        final JLabel jls20 = new JLabel("  0");
         jp3.add(jls20);
-        JButton jb21 = new JButton("Score");
+        final JButton jb21 = new JButton("Score");
         jp3.add(jb21);
-        JLabel jls21 = new JLabel("  0");
+        final JLabel jls21 = new JLabel("  0");
         jp3.add(jls21);
-        JButton jb22 = new JButton("Score");
+        final JButton jb22 = new JButton("Score");
         jp3.add(jb22);
-        JLabel jls22 = new JLabel("  0");
+        final JLabel jls22 = new JLabel("  0");
         jp3.add(jls22);
-        JButton jb23 = new JButton("Score");
+        final JButton jb23 = new JButton("Score");
         jp3.add(jb23);
-        JLabel jls23 = new JLabel("  0");
+        final JLabel jls23 = new JLabel("  0");
         jp3.add(jls23);
         
        jb.addActionListener(new ActionListener()
@@ -295,15 +295,233 @@ public class scoreSheet
 
             }
         });
+
+
+                jb6.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+
+                int i = Integer.parseInt(jls2.getText());
+                int i1 = Integer.parseInt(jls3.getText());
+                int i2 = Integer.parseInt(jls4.getText());
+                int i3 = Integer.parseInt(jls5.getText());
+                int i4 = Integer.parseInt(jls6.getText());
+                int i5 = Integer.parseInt(jls7.getText());
+
+                int total = i+i1+i2+i3+i4+i5;
+                jls8.setText(Integer.toString(total));
+                jb6.disable();
+                
+
+            }
+        });
         
+                jb7.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+
+                if(Integer.parseInt(jls8.getText()) >= 63)
+                {
+                   int bonus = Integer.parseInt(jls8.getText()) + 35;
+                   jls9.setText(Integer.toString(bonus));
+                   jb7.disable();
+                  
+                }
+                else
+                {
+                    int bonus = Integer.parseInt(jls8.getText()) + 0;
+                    jls9.setText(Integer.toString(bonus));
+                    jb7.disable();
+                    
+                    
+                }
+                
+
+            }
+        });
         
+                jb8.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+                jls10.setText(jls9.getText());
+                jls10.disable();
+                
+            }
+        });
+
+        jb10.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+
+                jls13.setText(Integer.toString(ScoreController.score[6]));
+                ScoreController.rolls[6].isPlayed = true ;
+
+            }
+        });
+
+        jb11.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+
+                jls14.setText(Integer.toString(ScoreController.score[7]));
+                ScoreController.rolls[7].isPlayed = true ;
+
+            }
+        });
 
 
+        jb12.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+
+                jls15.setText(Integer.toString(ScoreController.score[8]));
+                ScoreController.rolls[8].isPlayed = true ;
+
+            }
+        });
+
+        jb16.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+
+                jls16.setText(Integer.toString(ScoreController.score[9]));
+                ScoreController.rolls[9].isPlayed = true ;
+
+            }
+        });
+
+         jb17.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+
+                jls17.setText(Integer.toString(ScoreController.score[10]));
+                ScoreController.rolls[10].isPlayed = true ;
+
+            }
+        });
+
+        jb18.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+
+                jls18.setText(Integer.toString(ScoreController.score[11]));
+                ScoreController.rolls[11].isPlayed = true ;
+
+            }
+        });
+
+         jb19.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+
+                jls19.setText(Integer.toString(ScoreController.score[12]));
+                ScoreController.rolls[12].isPlayed = true ;
+
+            }
+        });
 
 
+        jb20.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+
+                int i = Integer.parseInt(jls14.getText());
+                int i1 = Integer.parseInt(jls15.getText());
+                int i2 = Integer.parseInt(jls16.getText());
+                int i3 = Integer.parseInt(jls17.getText());
+                int i4 = Integer.parseInt(jls18.getText());
+                int i5 = Integer.parseInt(jls19.getText());
+                int i6 = Integer.parseInt(jls13.getText());
+                /*
+                 if (ScoreController.rolls[11].isPlayed = true && ScoreController.rolls[11].checkValues())
+                {
+                    int total = i+i1+i2+i3+i4+i5+16 + 100;
+                    jls20.setText(Integer.toString(total));
+                    jb20.disable();
+                }
+                else
+                {
+                    int total = i+i1+i2+i3+i4+i5+16+ 0;
+                    jls20.setText(Integer.toString(total));
+                    jb20.disable();
+                }
+                 */
+
+            }
+        });
 
 
+                 jb21.addActionListener(new ActionListener()
+        {
 
+            public void actionPerformed(ActionEvent e)
+            {
+
+                jls21.setText(jls9.getText());
+                jb21.disable();
+
+            }
+        });
+
+                 jb22.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+                int i = Integer.parseInt(jls14.getText());
+                int i1 = Integer.parseInt(jls15.getText());
+                int i2 = Integer.parseInt(jls16.getText());
+                int i3 = Integer.parseInt(jls17.getText());
+                int i4 = Integer.parseInt(jls18.getText());
+                int i5 = Integer.parseInt(jls19.getText());
+                int i6 = Integer.parseInt(jls13.getText());
+                int i7 = Integer.parseInt(jls20.getText());
+
+                int total = i+i1+i2+i3+i4+i5+i6+i7;
+                jls22.setText(Integer.toString(total));
+                jb22.disable();
+
+            }
+        });
+
+
+                 jb23.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+
+                int i =  Integer.parseInt(jls21.getText());
+                int ii =  Integer.parseInt(jls22.getText());
+
+                int grdTotal = i + ii;
+                jls23.setText(Integer.toString(grdTotal));
+                jb23.disable();
+
+            }
+        });
 
 
         jp.add(jp3,BorderLayout.EAST);
