@@ -39,8 +39,11 @@ public class soloPlayMenu
         JButton jb = new JButton("Start Game");
         jb.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Not supported yet.");
+            public void actionPerformed(ActionEvent e)
+            {
+                yahtzeeLayout yl = new yahtzeeLayout();
+                ScoreController sc = new ScoreController();
+                frame.setVisible(false);
             }
         });
         JPanel jp1 = new JPanel();

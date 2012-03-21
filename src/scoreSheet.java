@@ -1,6 +1,8 @@
 
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /*
@@ -14,13 +16,13 @@ import javax.swing.*;
  */
 public class scoreSheet
 {
-    JFrame frame;
+    JPanel frame;
+
 
     public scoreSheet()
     {
-        frame = new JFrame();
-        frame.setSize(400,400);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame = new JPanel();
+        frame.setSize(300,300);
 
         JPanel jp = new JPanel();
         jp.setLayout(new BorderLayout());
@@ -77,7 +79,6 @@ public class scoreSheet
         JLabel j31 = new JLabel("Grand Total");
         jp1.add(j31);
 
-        jp.add(jp1,BorderLayout.WEST);
         jp.add(jp1,BorderLayout.WEST);
 
 
@@ -141,31 +142,31 @@ public class scoreSheet
         jp3.add(jls1);
         JButton jb = new JButton("Score");
         jp3.add(jb);
-        JLabel jls2 = new JLabel("  0");
+        final JLabel jls2 = new JLabel("  0");
         jp3.add(jls2);
         JButton jb1 = new JButton("Score");
         jp3.add(jb1);
-        JLabel jls3 = new JLabel("  0");
+        final JLabel jls3 = new JLabel("  0");
         jp3.add(jls3);
          JButton jb2 = new JButton("Score");
         jp3.add(jb2);
-        JLabel jls4 = new JLabel("  0");
+        final JLabel jls4 = new JLabel("  0");
         jp3.add(jls4);
         JButton jb3 = new JButton("Score");
         jp3.add(jb3);
-        JLabel jls5 = new JLabel("  0");
+        final JLabel jls5 = new JLabel("  0");
         jp3.add(jls5);
         JButton jb4 = new JButton("Score");
         jp3.add(jb4);
-        JLabel jls6 = new JLabel("  0");
+        final JLabel jls6 = new JLabel("  0");
         jp3.add(jls6);
         JButton jb5 = new JButton("Score");
         jp3.add(jb5);
-        JLabel jls7 = new JLabel("  0");
+        final JLabel jls7 = new JLabel("  0");
         jp3.add(jls7);
         JButton jb6 = new JButton("Score");
         jp3.add(jb6);
-        JLabel jls8 = new JLabel("  0");
+        final JLabel jls8 = new JLabel("  0");
         jp3.add(jls8);
         JButton jb7 = new JButton("Score");
         jp3.add(jb7);
@@ -193,7 +194,7 @@ public class scoreSheet
         jp3.add(jls15);
         JButton jb16 = new JButton("Score");
         jp3.add(jb16);
-        JLabel jls16 = new JLabel("  0");
+         JLabel jls16 = new JLabel("  0");
         jp3.add(jls16);
         JButton jb17 = new JButton("Score");
         jp3.add(jb17);
@@ -223,6 +224,87 @@ public class scoreSheet
         jp3.add(jb23);
         JLabel jls23 = new JLabel("  0");
         jp3.add(jls23);
+        
+       jb.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+
+                jls2.setText(Integer.toString(ScoreController.score[0]));
+                ScoreController.rolls[0].isPlayed = true ;
+
+            }
+        });
+
+        jb1.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+
+                jls3.setText(Integer.toString(ScoreController.score[1]));
+                ScoreController.rolls[0].isPlayed = true ;
+
+            }
+        });
+
+        jb2.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+
+                jls4.setText(Integer.toString(ScoreController.score[2]));
+                ScoreController.rolls[2].isPlayed = true ;
+
+            }
+        });
+
+        jb3.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+
+                jls5.setText(Integer.toString(ScoreController.score[3]));
+                ScoreController.rolls[3].isPlayed = true ;
+
+            }
+        });
+        jb4.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+
+                jls6.setText(Integer.toString(ScoreController.score[4]));
+                ScoreController.rolls[4].isPlayed = true ;
+
+            }
+        });
+        
+        jb5.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+
+                jls7.setText(Integer.toString(ScoreController.score[5]));
+                ScoreController.rolls[5].isPlayed = true ;
+
+            }
+        });
+        
+        
+
+
+
+
+
+
+
+
 
         jp.add(jp3,BorderLayout.EAST);
 
