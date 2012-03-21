@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class ThreeOfKind extends Roll
 {
-    public int checkValues(int[] dice)
+    public  int checkValues(int[] dice)
     {
         int sum = 0;
 
@@ -53,4 +53,6 @@ public class ThreeOfKind extends Roll
 
         return sum;
     }
+
+    
 }

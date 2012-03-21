@@ -1,6 +1,6 @@
 public class Yahtzee extends Roll
 {
-    public int checkValues(int[] dice)
+    public  int checkValues(int[] dice)
     {
         int sum = 0;
 
@@ -10,19 +10,20 @@ public class Yahtzee extends Roll
         int d4 = dice[3]; //4
         int d5 = dice[4]; //5
 
-        for (int i=1; i<=6; i++)
+
+        if (d1==d2 && d2==d3 && d3==d4 && d4==d5)
         {
-            if (d1==i && d2==i && d3==i && d4==i && d5==i)
-            {
-                sum = 50;
-            }
-            else
-            {
-                sum = 0;
-            }
+            sum = 50;
+        }
+        else
+        {
+            sum = 0;
         }
 
 
+        
+
+
         return sum;
-    }
+    }    
 }
