@@ -12,10 +12,10 @@ import java.util.Arrays;
 public class ScoreController 
 {
 
-    public static Roll[] rolls = new Roll[13];
+    public static Roll[] rolls = new Roll[13];  //New array of Roll to hold each score category
     public static int[] score = new int[13];
 
-    //All values initially set to false meaning the spaces are open
+    //Constructor to create a new Roll class for each of the score categories
     public ScoreController()
     {
         rolls[0] = new Aces();
