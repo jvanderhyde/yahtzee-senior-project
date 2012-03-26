@@ -1,3 +1,10 @@
+/*
+ * This class calculates the score for the Small Straight category.
+ * A small straight is a sequence of 4 consecutive numbers. This sequence will
+ * either be 1,2,3,4,? or 2,3,4,5,? or 3,4,5,6,?.
+ * The Small Straight class extends the Roll abstract class.
+ */
+
 import java.util.Arrays;
 
 public class SmallStraight extends Roll
@@ -6,13 +13,14 @@ public class SmallStraight extends Roll
     {
         int sum;
 
+        //Sort the array of dice that is passed in
         Arrays.sort(dice);
 
-        int d1 = dice[0]; //1
-        int d2 = dice[1]; //2
-        int d3 = dice[2]; //3
-        int d4 = dice[3]; //4
-        int d5 = dice[4]; //5
+        int d1 = dice[0]; //die number 1
+        int d2 = dice[1]; //die number 2
+        int d3 = dice[2]; //die number 3
+        int d4 = dice[3]; //die number 4
+        int d5 = dice[4]; //die number 5
 
         //Check if dice roll is 1,2,3,4
         if (d1==1 && d2==2 && d3==3 && d4==4)
@@ -48,8 +56,7 @@ public class SmallStraight extends Roll
         else
             sum = 0;
 
-
-
+        //Return the score for a small straight
         return sum;
     }    
 }
