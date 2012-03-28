@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class LargeStraight extends Roll
 {
-    public int checkValues(int[] dice)
+    public  int checkValues(int[] dice)
     {
         int sum;
 
@@ -31,5 +31,7 @@ public class LargeStraight extends Roll
         
         return sum;
     }
+
+    
 
 }
