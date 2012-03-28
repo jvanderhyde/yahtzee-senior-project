@@ -24,12 +24,13 @@ public class yahtzeeLayout
 {
     JFrame frame;
     int[] firstRoll;
+    int[] firstRoll1;
 
 
     public yahtzeeLayout()
     {
        frame = new JFrame();
-       frame.setSize(900,600);
+       frame.setSize(1025,700);
        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
        
         JPanel jp = new JPanel();
@@ -61,22 +62,19 @@ public class yahtzeeLayout
         jp3.setLayout(new BorderLayout());
         jp.add(jp3,BorderLayout.CENTER);
 
-        JPanel jp4 = new JPanel();
-        jp4.setLayout(new GridLayout(1,6));
-        JCheckBox jcb7= new JCheckBox("Die 1",false);
-        JCheckBox jcb8= new JCheckBox("Die 2",false);
-        JCheckBox jcb9= new JCheckBox("Die 3",false);
-        JCheckBox jcb10= new JCheckBox("Die 4",false);
-        JCheckBox jcb11= new JCheckBox("Die 5",false);
-        JButton jb12= new JButton("Roll");
-        jp4.add(jcb7);
-        jp4.add(jcb8);
-        jp4.add(jcb9);
-        jp4.add(jcb10);
-        jp4.add(jcb11);
-        jp4.add(jb12);
-        jp3.add(jp4,BorderLayout.SOUTH);
+        
+       
 
+      
+        
+
+        JPanel jp4 = new JPanel();
+        jp4.setLayout(new GridLayout(1,2));
+        final JButton jb12= new JButton("Roll All");
+        JButton jb13 = new JButton("Roll Selected");
+        jp4.add(jb12);
+        jp4.add(jb13);
+        jp3.add(jp4,BorderLayout.SOUTH);
 
 
         JPanel jp5 = new JPanel();
@@ -91,19 +89,35 @@ public class yahtzeeLayout
         final JLabel jl8 = new JLabel("0");
         JLabel jl9 = new JLabel("Die 5 :");
         final JLabel jl10 = new JLabel("0");
+        final JCheckBox jcb7= new JCheckBox("Die 1",false);
+        final JCheckBox jcb8= new JCheckBox("Die 2",false);
+        final JCheckBox jcb9= new JCheckBox("Die 3",false);
+        final JCheckBox jcb10= new JCheckBox("Die 4",false);
+        final JCheckBox jcb11= new JCheckBox("Die 5",false);
+        jp5.add(jcb7);
         jp5.add(jl1);
         jp5.add(jl2);
+        jp5.add(jcb8);
         jp5.add(jl3);
         jp5.add(jl4);
+        jp5.add(jcb9);
         jp5.add(jl5);
         jp5.add(jl6);
+        jp5.add(jcb10);
         jp5.add(jl7);
         jp5.add(jl8);
+        jp5.add(jcb11);
         jp5.add(jl9);
         jp5.add(jl10);
         jp3.add(jp5,BorderLayout.CENTER);
+        
+        
+        
+        
+        
+        
 
-                jb12.addActionListener(new ActionListener()
+        jb12.addActionListener(new ActionListener()
         {
 
             public void actionPerformed(ActionEvent e)
@@ -124,12 +138,60 @@ public class yahtzeeLayout
                          ScoreController.score[t] = test;
                      }
                  }
-
-
+                 
             }
         });
 
 
+        jb13.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+                if(!jcb7.isSelected())
+                {
+                    firstRoll[0] = Dice.rollOneDie();
+                }
+
+                if(!jcb8.isSelected())
+                {
+                    firstRoll[1] = Dice.rollOneDie();
+                }
+
+                if(!jcb9.isSelected())
+                {
+                    firstRoll[2] = Dice.rollOneDie();
+                }
+
+                if(!jcb10.isSelected())
+                {
+                    firstRoll[3] = Dice.rollOneDie();
+                }
+
+                if(!jcb11.isSelected())
+                {
+                    firstRoll[4] = Dice.rollOneDie();
+                }
+
+                 jl2.setText(Integer.toString(firstRoll[0]));
+                 jl4.setText(Integer.toString(firstRoll[1]));
+                 jl6.setText(Integer.toString(firstRoll[2]));
+                 jl8.setText(Integer.toString(firstRoll[3]));
+                 jl10.setText(Integer.toString(firstRoll[4]));
+                 firstRoll1 = firstRoll.clone();
+
+                 for (int t=0; t<ScoreController.rolls.length; t++)
+                 {
+                     int test = ScoreController.rolls[t].checkValues(firstRoll1);
+                     if(ScoreController.rolls[t].isPlayed != true)
+                     {
+                         ScoreController.score[t] = test;
+                     }
+                 }
+
+
+            }
+            });
 
 
 
