@@ -6,15 +6,16 @@
  */
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 //Keep track of what boxes are still open, no entry can be made more than once
 public class ScoreController 
 {
 
-    public static Roll[] rolls = new Roll[13];
+    public static Roll[] rolls = new Roll[13];  //New array of Roll to hold each score category
     public static int[] score = new int[13];
 
-    //All values initially set to false meaning the spaces are open
+    //Constructor to create a new Roll class for each of the score categories
     public ScoreController()
     {
         rolls[0] = new Aces();
@@ -112,6 +113,7 @@ public class ScoreController
                 //while loop to keep rolling dice
                 while (p!=0)
                 {
+                    System.out.println();
                     System.out.print("Enter 1 to roll or 0 to quit: ");
                     int roll = scan.nextInt();
 
@@ -124,12 +126,14 @@ public class ScoreController
                     else if(roll == 1)
                     {
                         int[] firstRoll = Dice.rollAllDice();
+                        Arrays.sort(firstRoll);
                         for (int t=0; t<firstRoll.length; t++)
                         {
                             System.out.println("Die " + (t+1) + ": " + firstRoll[t]);
                         }
                         System.out.println();
 
+                        System.out.println("Available Categories to play:");
                         for (int t=0; t<rolls.length; t++)
                         {
                             String label = "";
@@ -146,9 +150,9 @@ public class ScoreController
                             else if (t==5)
                                 label = " Sixes: ";
                             else if (t==6)
-                                label = " of a kind: ";
+                                label = " 3 of a kind: ";
                             else if (t==7)
-                                label = " of kind: ";
+                                label = " 4 of kind: ";
                             else if (t==8)
                                 label = " Full House: ";
                             else if (t==9)
@@ -159,11 +163,9 @@ public class ScoreController
                                 label = " Yahtzee: ";
                             else if (t==12)
                                 label = " Chance: ";
-
-
-
+                            
                             int test = player.rolls[t].checkValues(firstRoll);
-                            if (test != 0)
+                            if (rolls[t].isPlayed != true)
                             {
                                 System.out.println("#" + (t+1) + label + test);
                                 score[t]=test;
@@ -176,38 +178,81 @@ public class ScoreController
                         int nPlay = scan.nextInt();
                         System.out.println();
 
-                        //Score now
+                        //Score now and print updated score card
                         if (nPlay==2)
                         {
                             System.out.print("Select the correspondong number of category you would like to use: ");
                             int catNum = scan.nextInt();
 
                             if (catNum==1)
+                            {
                                 a = score[0];
+                                rolls[0].isPlayed=true;
+                            }
                             if (catNum==2)
+                            {
                                 b = score[1];
+                                rolls[1].isPlayed=true;
+                            }
                             if (catNum==3)
+                            {
                                 c = score[2];
+                                rolls[2].isPlayed=true;
+                            }
                             if (catNum==4)
+                            {
                                 d = score[3];
+                                rolls[3].isPlayed=true;
+                            }
                             if (catNum==5)
+                            {
                                 e = score[4];
+                                rolls[4].isPlayed=true;
+                            }
                             if (catNum==6)
+                            {
                                 f = score[5];
+                                rolls[5].isPlayed=true;
+                            }
                             if (catNum==7)
+                            {
                                 g = score[6];
+                                rolls[6].isPlayed=true;
+                            }
                             if (catNum==8)
+                            {
                                 h = score[7];
+                                rolls[7].isPlayed=true;
+                            }
                             if (catNum==9)
+                            {
                                 i = score[8];
+                                rolls[8].isPlayed=true;
+                            }
                             if (catNum==10)
+                            {
                                 j = score[9];
+                                rolls[9].isPlayed=true;
+                            }
                             if (catNum==11)
+                            {
                                 k = score[10];
+                                rolls[10].isPlayed=true;
+                            }
                             if (catNum==12)
+                            {
                                 l = score[11];
+                                rolls[11].isPlayed=true;
+                            }
                             if (catNum==13)
+                            {
                                 m = score[12];
+                                rolls[12].isPlayed=true;
+                            }
+
+                            upTotal = (a+b+c+d+e+f);
+                            lowTotal = (g+h+i+j+k+l+m);
+                            total = (upTotal+lowTotal);
 
                             //Print out score card
                             System.out.println();
@@ -227,18 +272,190 @@ public class ScoreController
                             System.out.println("Lg. Straight: " + k);
                             System.out.println("Yahtzee: " + l);
                             System.out.println("Chance: " + m);
+                            System.out.println();
+                            System.out.println("Upper Total: " + upTotal);
+                            System.out.println("Lower Total: " + lowTotal);
+                            System.out.println();
+                            System.out.println("Total:" + total);
+                            System.out.println();
 
                         }
                         //Roll select dice again
                         else if (nPlay==3)
                         {
-                            System.out.print("How many dice you want to roll again: ");
-                            int amountDice = scan.nextInt();
+                            
+                            int count=0;
+                            int rollAgain=1;
+                            while (count<2 && rollAgain != 0)
+                            {
 
-                            System.out.println("Select the corresponding number of the die.");
-                            System.out.println("Repeat as necessary.");
-                            
-                            
+                                System.out.print("How many dice you want to roll again: ");
+                                int amountDice = scan.nextInt();
+
+                                System.out.println();
+                                System.out.println("Select the corresponding number of the die. Repeat as necessary.");
+                                
+                                for (int v=0; v<amountDice; v++)
+                                {
+                                    System.out.print("Enter the die number you want to roll again: ");
+                                    int dieNum = scan.nextInt();
+
+                                    int newDice = Dice.rollOneDie();
+                                    
+                                    firstRoll[(dieNum-1)] = newDice;
+                                }
+
+                                for (int t=0; t<firstRoll.length; t++)
+                                {
+                                    System.out.println("Die " + (t+1) + ": " + firstRoll[t]);
+                                }
+
+                                System.out.println();
+                                System.out.print("Enter 1 to roll again or 0 to score your roll: ");
+                                rollAgain = scan.nextInt();
+
+                                count++;
+                            }
+
+                            //Print available options
+                            System.out.println("Available Categories to play:");
+                            for (int t=0; t<rolls.length; t++)
+                            {
+                                String label = "";
+                                if (t==0)
+                                    label = " Aces: ";
+                                else if (t==1)
+                                    label = " Twos: ";
+                                else if (t==2)
+                                    label = " Threes: ";
+                                else if (t==3)
+                                    label = " Fours: ";
+                                else if (t==4)
+                                    label = " Fives: ";
+                                else if (t==5)
+                                    label = " Sixes: ";
+                                else if (t==6)
+                                    label = " 3 of a kind: ";
+                                else if (t==7)
+                                    label = " 4 of kind: ";
+                                else if (t==8)
+                                    label = " Full House: ";
+                                else if (t==9)
+                                    label = " Sm. Straight: ";
+                                else if (t==10)
+                                    label = " Lg. Straight: ";
+                                else if (t==11)
+                                    label = " Yahtzee: ";
+                                else if (t==12)
+                                    label = " Chance: ";
+
+                                int test = player.rolls[t].checkValues(firstRoll);
+                                if (rolls[t].isPlayed != true)
+                                {
+                                    System.out.println("#" + (t+1) + label + test);
+                                    score[t]=test;
+                                }
+
+                            }
+
+                            //Score the roll
+                            System.out.print("Select the correspondong number of category you would like to use: ");
+                            int catNum = scan.nextInt();
+
+                            if (catNum==1)
+                            {
+                                a = score[0];
+                                rolls[0].isPlayed=true;
+                            }
+                            if (catNum==2)
+                            {
+                                b = score[1];
+                                rolls[1].isPlayed=true;
+                            }
+                            if (catNum==3)
+                            {
+                                c = score[2];
+                                rolls[2].isPlayed=true;
+                            }
+                            if (catNum==4)
+                            {
+                                d = score[3];
+                                rolls[3].isPlayed=true;
+                            }
+                            if (catNum==5)
+                            {
+                                e = score[4];
+                                rolls[4].isPlayed=true;
+                            }
+                            if (catNum==6)
+                            {
+                                f = score[5];
+                                rolls[5].isPlayed=true;
+                            }
+                            if (catNum==7)
+                            {
+                                g = score[6];
+                                rolls[6].isPlayed=true;
+                            }
+                            if (catNum==8)
+                            {
+                                h = score[7];
+                                rolls[7].isPlayed=true;
+                            }
+                            if (catNum==9)
+                            {
+                                i = score[8];
+                                rolls[8].isPlayed=true;
+                            }
+                            if (catNum==10)
+                            {
+                                j = score[9];
+                                rolls[9].isPlayed=true;
+                            }
+                            if (catNum==11)
+                            {
+                                k = score[10];
+                                rolls[10].isPlayed=true;
+                            }
+                            if (catNum==12)
+                            {
+                                l = score[11];
+                                rolls[11].isPlayed=true;
+                            }
+                            if (catNum==13)
+                            {
+                                m = score[12];
+                                rolls[12].isPlayed=true;
+                            }
+
+                            upTotal = (a+b+c+d+e+f);
+                            lowTotal = (g+h+i+j+k+l+m);
+                            total = (upTotal+lowTotal);
+
+                            //Print out score card
+                            System.out.println();
+                            System.out.println("Score Card: ");
+                            System.out.println();
+                            System.out.println("Aces: " + a);
+                            System.out.println("Twos: " + b);
+                            System.out.println("Threes: " + c);
+                            System.out.println("Fours: " + d);
+                            System.out.println("Fives: " + e);
+                            System.out.println("Sixes: " + f);
+                            System.out.println();
+                            System.out.println("3 of a kind: " + g);
+                            System.out.println("4 of a kind: " + h);
+                            System.out.println("Full House: " +i);
+                            System.out.println("Sm. Straight: " + j);
+                            System.out.println("Lg. Straight: " + k);
+                            System.out.println("Yahtzee: " + l);
+                            System.out.println("Chance: " + m);
+                            System.out.println();
+                            System.out.println("Upper Total: " + upTotal);
+                            System.out.println("Lower Total: " + lowTotal);
+                            System.out.println();
+                            System.out.println("Total:" + total);
+                            System.out.println();
 
 
                         }
