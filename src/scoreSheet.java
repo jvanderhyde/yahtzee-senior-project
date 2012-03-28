@@ -21,6 +21,7 @@ public class scoreSheet
 
     public scoreSheet()
     {
+        //Create new panel
         frame = new JPanel();
         frame.setSize(300,300);
 
@@ -224,8 +225,9 @@ public class scoreSheet
         jp3.add(jb23);
         final JLabel jls23 = new JLabel("  0");
         jp3.add(jls23);
-        
-       jb.addActionListener(new ActionListener()
+
+        //Action listener for aces button
+        jb.addActionListener(new ActionListener()
         {
 
             public void actionPerformed(ActionEvent e)
@@ -237,6 +239,7 @@ public class scoreSheet
             }
         });
 
+        //Action listener for the twos button
         jb1.addActionListener(new ActionListener()
         {
 
@@ -249,6 +252,7 @@ public class scoreSheet
             }
         });
 
+        //Action listener for the threes button
         jb2.addActionListener(new ActionListener()
         {
 
@@ -261,6 +265,7 @@ public class scoreSheet
             }
         });
 
+        //Action listener for the fours button
         jb3.addActionListener(new ActionListener()
         {
 
@@ -272,6 +277,8 @@ public class scoreSheet
 
             }
         });
+
+        //Action listener 
         jb4.addActionListener(new ActionListener()
         {
 

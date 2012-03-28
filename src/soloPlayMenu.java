@@ -23,6 +23,7 @@ public class soloPlayMenu
      public soloPlayMenu()
     {
 
+        //Create new 200x200 pixel frame 
         frame = new JFrame("SoloPlay Menu");
         frame.setSize(200, 200);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
