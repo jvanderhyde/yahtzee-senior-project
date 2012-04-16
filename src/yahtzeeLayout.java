@@ -25,6 +25,7 @@ public class yahtzeeLayout
     JFrame frame;
     int[] firstRoll;
     int[] firstRoll1;
+    int counter;
 
 
     public yahtzeeLayout()
@@ -71,7 +72,7 @@ public class yahtzeeLayout
         JPanel jp4 = new JPanel();
         jp4.setLayout(new GridLayout(1,2));
         final JButton jb12= new JButton("Roll All");
-        JButton jb13 = new JButton("Roll Selected");
+        final JButton jb13 = new JButton("Roll Selected");
         jp4.add(jb12);
         jp4.add(jb13);
         jp3.add(jp4,BorderLayout.SOUTH);
@@ -117,6 +118,7 @@ public class yahtzeeLayout
         
         
 
+      
         jb12.addActionListener(new ActionListener()
         {
 
@@ -138,6 +140,10 @@ public class yahtzeeLayout
                          ScoreController.score[t] = test;
                      }
                  }
+                 counter++;
+                 if (counter<3)
+                     jb12.disable();
+
                  
             }
         });
@@ -188,10 +194,15 @@ public class yahtzeeLayout
                          ScoreController.score[t] = test;
                      }
                  }
+                 counter++;
+                 if(counter < 3)
+                     jb13.disable();
+                 
 
 
             }
             });
+        
 
 
 
