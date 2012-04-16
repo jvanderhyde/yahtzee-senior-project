@@ -1,4 +1,5 @@
-
+import  sun.audio.*;    //import the sun.audio package
+import  java.io.*;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -19,11 +20,14 @@ public class scoreSheet
     JPanel frame;
 
 
-    public scoreSheet()
+    public scoreSheet() 
     {
         //Create new panel
         frame = new JPanel();
         frame.setSize(300,300);
+
+        
+
 
         JPanel jp = new JPanel();
         jp.setLayout(new BorderLayout());
@@ -236,6 +240,8 @@ public class scoreSheet
                 jls2.setText(Integer.toString(ScoreController.score[0]));
                 ScoreController.rolls[0].isPlayed = true ;
 
+                //Play pencil sound when button is clicked
+                
             }
         });
 
@@ -249,6 +255,8 @@ public class scoreSheet
                 jls3.setText(Integer.toString(ScoreController.score[1]));
                 ScoreController.rolls[0].isPlayed = true ;
 
+                //Play pencil sound when button is clicked
+                
             }
         });
 
@@ -261,6 +269,9 @@ public class scoreSheet
 
                 jls4.setText(Integer.toString(ScoreController.score[2]));
                 ScoreController.rolls[2].isPlayed = true ;
+
+                //Play pencil sound when button is clicked
+                
 
             }
         });
@@ -275,6 +286,8 @@ public class scoreSheet
                 jls5.setText(Integer.toString(ScoreController.score[3]));
                 ScoreController.rolls[3].isPlayed = true ;
 
+                //Play pencil sound when button is clicked
+                
             }
         });
 
@@ -288,6 +301,9 @@ public class scoreSheet
                 jls6.setText(Integer.toString(ScoreController.score[4]));
                 ScoreController.rolls[4].isPlayed = true ;
 
+                //Play pencil sound when button is clicked
+                
+
             }
         });
         
@@ -300,6 +316,8 @@ public class scoreSheet
                 jls7.setText(Integer.toString(ScoreController.score[5]));
                 ScoreController.rolls[5].isPlayed = true ;
 
+                //Play pencil sound when button is clicked
+                
             }
         });
 
