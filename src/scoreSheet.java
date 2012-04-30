@@ -1,4 +1,6 @@
-import  sun.audio.*;    //import the sun.audio package
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import  sun.audio.*;    
 import  java.io.*;
 
 import java.awt.*;
@@ -18,6 +20,8 @@ import javax.swing.*;
 public class scoreSheet
 {
     JPanel frame;
+
+
 
 
     public scoreSheet() 
@@ -240,6 +244,10 @@ public class scoreSheet
                 jls2.setText(Integer.toString(ScoreController.score[0]));
                 ScoreController.rolls[0].isPlayed = true ;
 
+                //if this category is selected, uncheck all the check boxes
+                
+
+
                 //Play pencil sound when button is clicked
                 
             }
@@ -253,7 +261,7 @@ public class scoreSheet
             {
 
                 jls3.setText(Integer.toString(ScoreController.score[1]));
-                ScoreController.rolls[0].isPlayed = true ;
+                ScoreController.rolls[1].isPlayed = true ;
 
                 //Play pencil sound when button is clicked
                 
@@ -472,27 +480,16 @@ public class scoreSheet
             public void actionPerformed(ActionEvent e)
             {
 
-                int i = Integer.parseInt(jls14.getText());
-                int i1 = Integer.parseInt(jls15.getText());
-                int i2 = Integer.parseInt(jls16.getText());
-                int i3 = Integer.parseInt(jls17.getText());
-                int i4 = Integer.parseInt(jls18.getText());
-                int i5 = Integer.parseInt(jls19.getText());
-                int i6 = Integer.parseInt(jls13.getText());
-                /*
-                 if (ScoreController.rolls[11].isPlayed = true && ScoreController.rolls[11].checkValues())
+                
+                
+                 if (ScoreController.rolls[11].isPlayed && ScoreController.score[11]==50)
                 {
-                    int total = i+i1+i2+i3+i4+i5+16 + 100;
+                    int total = 100;
                     jls20.setText(Integer.toString(total));
-                    jb20.disable();
+                    
                 }
-                else
-                {
-                    int total = i+i1+i2+i3+i4+i5+16+ 0;
-                    jls20.setText(Integer.toString(total));
-                    jb20.disable();
-                }
-                 */
+                
+                 
 
             }
         });
