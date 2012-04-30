@@ -3,7 +3,6 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.Class;
 import java.util.Arrays;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -27,6 +26,7 @@ public class yahtzeeLayout
     JFrame frame;
     int[] firstRoll;
     int[] firstRoll1;
+    int counter = 0;
 
 
     Thread th;
@@ -95,9 +95,7 @@ public class yahtzeeLayout
 
         JPanel jp3 = new JPanel();
         jp3.setLayout(new BorderLayout());
-        jp.add(jp3,BorderLayout.CENTER);
-
-        
+        jp.add(jp3,BorderLayout.CENTER);       
        
 
       
@@ -105,8 +103,8 @@ public class yahtzeeLayout
 
         JPanel jp4 = new JPanel();
         jp4.setLayout(new GridLayout(1,2));
-        final JButton jb12= new JButton("Roll All");
-        JButton jb13 = new JButton("Roll Unselected");
+        final JButton jb12= new JButton("Roll All");        
+        final JButton jb13 = new JButton("Roll UnSelected");
         jp4.add(jb12);
         jp4.add(jb13);
         jp3.add(jp4,BorderLayout.SOUTH);
@@ -146,11 +144,6 @@ public class yahtzeeLayout
         jp5.add(lbbbl5);      //Die five jl10
         jp3.add(jp5,BorderLayout.CENTER);
         
-        
-        
-        //final DiceAnimation da=new DiceAnimation();
-        
-        
 
         jb12.addActionListener(new ActionListener()
         {
@@ -180,13 +173,18 @@ public class yahtzeeLayout
                          ScoreController.score[t] = test;
                      }
                  }
-                
+
                  
             }
         });
+        
+
+        
 
 
-
+        if (counter != 3)
+        {
+         jb13.enable();
 
         jb13.addActionListener(new ActionListener()
         {
@@ -237,17 +235,34 @@ public class yahtzeeLayout
                      {
                          ScoreController.score[t] = test;
                      }
+                     
                  }
-
+                
+                 
+                 counter++;
 
             }
             });
+
+        }
+        else if (counter == 3)
+        {
+            jb13.disable();
+            counter=0;
+
+        }
+        
+     
+
+
+        
 
 
 
 
         frame.add(jp);
         frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
         
     }
