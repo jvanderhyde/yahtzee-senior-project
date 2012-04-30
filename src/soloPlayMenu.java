@@ -36,7 +36,7 @@ public class soloPlayMenu
         jp.add(jl, BorderLayout.NORTH);
 
         JLabel jl1 = new JLabel("User Name");
-        JTextField jt = new JTextField();
+        final JTextField jt = new JTextField();
         JButton jb = new JButton("Start Game");
         jb.addActionListener(new ActionListener() {
 
@@ -44,6 +44,7 @@ public class soloPlayMenu
             {
                 yahtzeeLayout yl = new yahtzeeLayout();
                 ScoreController sc = new ScoreController();
+                
                 frame.setVisible(false);
             }
         });
