@@ -17,6 +17,9 @@ import javax.swing.*;
 public class scoreSheet
 {
     JPanel frame;
+    int total;
+    int total1;
+    int grdTotal;
 
 
     public scoreSheet()
@@ -99,11 +102,11 @@ public class scoreSheet
         jp2.add(jlh5);
         JLabel jlh6 = new JLabel("   Add Sixes Only");
         jp2.add(jlh6);
-        JLabel jlh7 = new JLabel("   ------------->");
+        JLabel jlh7 = new JLabel("   ----------------------->");
         jp2.add(jlh7);
         JLabel jlh8 = new JLabel("   Score 35");
         jp2.add(jlh8);
-        JLabel jlh9 = new JLabel("   ------------->");
+        JLabel jlh9 = new JLabel("   ----------------------->");
         jp2.add(jlh9);
         JLabel jlh10 = new JLabel("");
         jp2.add(jlh10);
@@ -164,21 +167,21 @@ public class scoreSheet
         jp3.add(jb5);
         final JLabel jls7 = new JLabel("  0");
         jp3.add(jls7);
-        final JButton jb6 = new JButton("Score");
+        final JLabel jb6 = new JLabel("");
         jp3.add(jb6);
         final JLabel jls8 = new JLabel("  0");
         jp3.add(jls8);
-        final JButton jb7 = new JButton("Score");
+        final JLabel jb7 = new JLabel("");
         jp3.add(jb7);
         final JLabel jls9 = new JLabel("  0");
         jp3.add(jls9);
-        JButton jb8 = new JButton("Score");
+        JLabel jb8 = new JLabel("");
         jp3.add(jb8);
         final JLabel jls10 = new JLabel("  0");
         jp3.add(jls10);
-        JButton jb9 = new JButton("Score");
+        JLabel jb9 = new JLabel("");
         jp3.add(jb9);
-        final JLabel jls12 = new JLabel("  0");
+        final JLabel jls12 = new JLabel("");
         jp3.add(jls12);
         JButton jb10 = new JButton("Score");
         jp3.add(jb10);
@@ -212,15 +215,15 @@ public class scoreSheet
         jp3.add(jb20);
         final JLabel jls20 = new JLabel("  0");
         jp3.add(jls20);
-        final JButton jb21 = new JButton("Score");
+        final JLabel jb21 = new JLabel("");
         jp3.add(jb21);
         final JLabel jls21 = new JLabel("  0");
         jp3.add(jls21);
-        final JButton jb22 = new JButton("Score");
+        final JLabel jb22 = new JLabel("");
         jp3.add(jb22);
         final JLabel jls22 = new JLabel("  0");
         jp3.add(jls22);
-        final JButton jb23 = new JButton("Score");
+        final JLabel jb23 = new JLabel("");
         jp3.add(jb23);
         final JLabel jls23 = new JLabel("  0");
         jp3.add(jls23);
@@ -233,6 +236,23 @@ public class scoreSheet
 
                 jls2.setText(Integer.toString(ScoreController.score[0]));
                 ScoreController.rolls[0].isPlayed = true ;
+                total += Integer.parseInt(jls2.getText());
+                jls8.setText(Integer.toString(total));
+                                if(total >= 63)
+                {
+                   int bonus = Integer.parseInt(jls8.getText()) + 35;
+                   jls9.setText(Integer.toString(bonus));
+
+
+                }
+                else
+                {
+                    int bonus = Integer.parseInt(jls8.getText()) + 0;
+                    jls9.setText(Integer.toString(bonus));
+                }
+                jls10.setText(jls9.getText());
+                grdTotal = total + total1;
+                jls23.setText(Integer.toString(grdTotal));
 
             }
         });
@@ -245,7 +265,23 @@ public class scoreSheet
 
                 jls3.setText(Integer.toString(ScoreController.score[1]));
                 ScoreController.rolls[1].isPlayed = true ;
+                total += Integer.parseInt(jls3.getText());
+                jls8.setText(Integer.toString(total));
+                                if(total >= 63)
+                {
+                   int bonus = Integer.parseInt(jls8.getText()) + 35;
+                   jls9.setText(Integer.toString(bonus));
 
+
+                }
+                else
+                {
+                    int bonus = Integer.parseInt(jls8.getText()) + 0;
+                    jls9.setText(Integer.toString(bonus));
+                }
+                jls10.setText(jls9.getText());
+                grdTotal = total + total1;
+                jls23.setText(Integer.toString(grdTotal));
             }
         });
 
@@ -257,6 +293,23 @@ public class scoreSheet
 
                 jls4.setText(Integer.toString(ScoreController.score[2]));
                 ScoreController.rolls[2].isPlayed = true ;
+                total += Integer.parseInt(jls4.getText());
+                jls8.setText(Integer.toString(total));
+                                if(total >= 63)
+                {
+                   int bonus = Integer.parseInt(jls8.getText()) + 35;
+                   jls9.setText(Integer.toString(bonus));
+
+
+                }
+                else
+                {
+                    int bonus = Integer.parseInt(jls8.getText()) + 0;
+                    jls9.setText(Integer.toString(bonus));
+                }
+                jls10.setText(jls9.getText());
+                grdTotal = total + total1;
+                jls23.setText(Integer.toString(grdTotal));
 
             }
         });
@@ -268,7 +321,24 @@ public class scoreSheet
             {
 
                 jls5.setText(Integer.toString(ScoreController.score[3]));
-                ScoreController.rolls[3].isPlayed = true ;
+                ScoreController.rolls[3].isPlayed = true;
+                total += Integer.parseInt(jls5.getText());
+                jls8.setText(Integer.toString(total));
+                                if(total >= 63)
+                {
+                   int bonus = Integer.parseInt(jls8.getText()) + 35;
+                   jls9.setText(Integer.toString(bonus));
+
+
+                }
+                else
+                {
+                    int bonus = Integer.parseInt(jls8.getText()) + 0;
+                    jls9.setText(Integer.toString(bonus));
+                }
+                jls10.setText(jls9.getText());
+                grdTotal = total + total1;
+                jls23.setText(Integer.toString(grdTotal));
 
             }
         });
@@ -280,11 +350,28 @@ public class scoreSheet
 
                 jls6.setText(Integer.toString(ScoreController.score[4]));
                 ScoreController.rolls[4].isPlayed = true ;
+                 total += Integer.parseInt(jls6.getText());
+                jls8.setText(Integer.toString(total));
+                                if(total >= 63)
+                {
+                   int bonus = Integer.parseInt(jls8.getText()) + 35;
+                   jls9.setText(Integer.toString(bonus));
+
+
+                }
+                else
+                {
+                    int bonus = Integer.parseInt(jls8.getText()) + 0;
+                    jls9.setText(Integer.toString(bonus));
+                }
+                jls10.setText(jls9.getText());
+                grdTotal = total + total1;
+                jls23.setText(Integer.toString(grdTotal));
 
             }
         });
         
-        jb5.addActionListener(new ActionListener()
+       jb5.addActionListener(new ActionListener()
         {
 
             public void actionPerformed(ActionEvent e)
@@ -292,68 +379,29 @@ public class scoreSheet
 
                 jls7.setText(Integer.toString(ScoreController.score[5]));
                 ScoreController.rolls[5].isPlayed = true ;
-
-            }
-        });
-
-
-                jb6.addActionListener(new ActionListener()
-        {
-
-            public void actionPerformed(ActionEvent e)
-            {
-
-                int i = Integer.parseInt(jls2.getText());
-                int i1 = Integer.parseInt(jls3.getText());
-                int i2 = Integer.parseInt(jls4.getText());
-                int i3 = Integer.parseInt(jls5.getText());
-                int i4 = Integer.parseInt(jls6.getText());
-                int i5 = Integer.parseInt(jls7.getText());
-
-                int total = i+i1+i2+i3+i4+i5;
+                total += Integer.parseInt(jls7.getText());
                 jls8.setText(Integer.toString(total));
-                jb6.disable();
-                
 
-            }
-        });
-        
-                jb7.addActionListener(new ActionListener()
-        {
-
-            public void actionPerformed(ActionEvent e)
-            {
-
-                if(Integer.parseInt(jls8.getText()) >= 63)
+                if(total >= 63)
                 {
                    int bonus = Integer.parseInt(jls8.getText()) + 35;
                    jls9.setText(Integer.toString(bonus));
-                   jb7.disable();
-                  
+
+
                 }
                 else
                 {
                     int bonus = Integer.parseInt(jls8.getText()) + 0;
                     jls9.setText(Integer.toString(bonus));
-                    jb7.disable();
-                    
-                    
                 }
-                
-
-            }
-        });
-        
-                jb8.addActionListener(new ActionListener()
-        {
-
-            public void actionPerformed(ActionEvent e)
-            {
                 jls10.setText(jls9.getText());
-                jls10.disable();
-                
+                grdTotal = total + total1;
+                jls23.setText(Integer.toString(grdTotal));
+
             }
         });
+ 
+        
 
         jb10.addActionListener(new ActionListener()
         {
@@ -363,6 +411,11 @@ public class scoreSheet
 
                 jls13.setText(Integer.toString(ScoreController.score[6]));
                 ScoreController.rolls[6].isPlayed = true ;
+                total1 += Integer.parseInt(jls13.getText());
+                jls22.setText(Integer.toString(total1));
+                 jls21.setText(jls9.getText());
+                 grdTotal = total + total1;
+                jls23.setText(Integer.toString(grdTotal));
 
             }
         });
@@ -375,6 +428,11 @@ public class scoreSheet
 
                 jls14.setText(Integer.toString(ScoreController.score[7]));
                 ScoreController.rolls[7].isPlayed = true ;
+                total1 += Integer.parseInt(jls14.getText());
+                jls22.setText(Integer.toString(total1));
+                 jls21.setText(jls9.getText());
+                 grdTotal = total + total1;
+                jls23.setText(Integer.toString(grdTotal));
 
             }
         });
@@ -388,6 +446,12 @@ public class scoreSheet
 
                 jls15.setText(Integer.toString(ScoreController.score[8]));
                 ScoreController.rolls[8].isPlayed = true ;
+               
+                jls22.setText(Integer.toString(total1));
+                 jls21.setText(jls9.getText());
+                 total1 += Integer.parseInt(jls15.getText());
+                 grdTotal = total + total1;
+                jls23.setText(Integer.toString(grdTotal));
 
             }
         });
@@ -400,6 +464,12 @@ public class scoreSheet
 
                 jls16.setText(Integer.toString(ScoreController.score[9]));
                 ScoreController.rolls[9].isPlayed = true ;
+                
+                jls22.setText(Integer.toString(total1));
+                 jls21.setText(jls9.getText());
+                 total1 += Integer.parseInt(jls16.getText());
+                 grdTotal = total + total1;
+                jls23.setText(Integer.toString(grdTotal));
 
             }
         });
@@ -412,6 +482,12 @@ public class scoreSheet
 
                 jls17.setText(Integer.toString(ScoreController.score[10]));
                 ScoreController.rolls[10].isPlayed = true ;
+                
+                jls22.setText(Integer.toString(total1));
+                 jls21.setText(jls9.getText());
+                 total1 += Integer.parseInt(jls17.getText());
+                 grdTotal = total + total1;
+                jls23.setText(Integer.toString(grdTotal));
 
             }
         });
@@ -424,6 +500,12 @@ public class scoreSheet
 
                 jls18.setText(Integer.toString(ScoreController.score[11]));
                 ScoreController.rolls[11].isPlayed = true ;
+                
+                jls22.setText(Integer.toString(total1));
+                 jls21.setText(jls9.getText());
+                 total1 += Integer.parseInt(jls18.getText());
+                 grdTotal = total + total1;
+                jls23.setText(Integer.toString(grdTotal));
 
             }
         });
@@ -436,6 +518,12 @@ public class scoreSheet
 
                 jls19.setText(Integer.toString(ScoreController.score[12]));
                 ScoreController.rolls[12].isPlayed = true ;
+                
+                jls22.setText(Integer.toString(total1));
+                 jls21.setText(jls9.getText());
+                 total1 +=Integer.parseInt(jls19.getText());
+                 grdTotal = total + total1;
+                jls23.setText(Integer.toString(grdTotal));
 
             }
         });
@@ -454,66 +542,17 @@ public class scoreSheet
                     int total = 100;
                     jls20.setText(Integer.toString(total));
                     
+                    
                 }
                 
-                 
-
-            }
-        });
-
-
-                 jb21.addActionListener(new ActionListener()
-        {
-
-            public void actionPerformed(ActionEvent e)
-            {
-
+                jls22.setText(Integer.toString(total1));
                 jls21.setText(jls9.getText());
-                jb21.disable();
-
-            }
-        });
-
-                 jb22.addActionListener(new ActionListener()
-        {
-
-            public void actionPerformed(ActionEvent e)
-            {
-                int i = Integer.parseInt(jls14.getText());
-                int i1 = Integer.parseInt(jls15.getText());
-                int i2 = Integer.parseInt(jls16.getText());
-                int i3 = Integer.parseInt(jls17.getText());
-                int i4 = Integer.parseInt(jls18.getText());
-                int i5 = Integer.parseInt(jls19.getText());
-                int i6 = Integer.parseInt(jls13.getText());
-                int i7 = Integer.parseInt(jls20.getText());
-
-                int total = i+i1+i2+i3+i4+i5+i6+i7;
-                jls22.setText(Integer.toString(total));
-                jb22.disable();
-
-            }
-        });
-
-
-                 jb23.addActionListener(new ActionListener()
-        {
-
-            public void actionPerformed(ActionEvent e)
-            {
-
-                int i =  Integer.parseInt(jls21.getText());
-                int ii =  Integer.parseInt(jls22.getText());
-
-                int grdTotal = i + ii;
+                total1 +=Integer.parseInt(jls20.getText());
+                grdTotal = total + total1;
                 jls23.setText(Integer.toString(grdTotal));
-                jb23.disable();
-
-            }
+                    }
         });
-
-
-        jp.add(jp3,BorderLayout.EAST);
+            jp.add(jp3,BorderLayout.EAST);
 
         frame.add(jp);
         frame.setVisible(true);
