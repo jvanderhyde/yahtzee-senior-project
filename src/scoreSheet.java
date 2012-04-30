@@ -263,7 +263,7 @@ public class scoreSheet
                 jls3.setText(Integer.toString(ScoreController.score[1]));
                 ScoreController.rolls[1].isPlayed = true ;
 
-                //Play pencil sound when button is clicked
+                
                 
             }
         });
@@ -278,7 +278,7 @@ public class scoreSheet
                 jls4.setText(Integer.toString(ScoreController.score[2]));
                 ScoreController.rolls[2].isPlayed = true ;
 
-                //Play pencil sound when button is clicked
+                
                 
 
             }
