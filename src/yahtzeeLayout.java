@@ -10,6 +10,8 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import java.awt.*;
+import javax.swing.*;
 
 /*
  * To change this template, choose Tools | Templates
@@ -24,12 +26,46 @@ public class yahtzeeLayout
 {
     JFrame frame;
     int[] firstRoll;
+    int[] firstRoll1;
+
+
+    Thread th;
+    JFrame fframe;
+
+    //dice pictures
+    JLabel lbbbl = new JLabel();
+    JLabel lbbbl2 = new JLabel();
+    JLabel lbbbl3 = new JLabel();
+    JLabel lbbbl4 = new JLabel();
+    JLabel lbbbl5 = new JLabel();
+
+
+    int[] retRoll;
+
+
+
+    int numOneDie;
+    int numTwoDie;
+    int numThreeDie;
+    int numFourDie;
+    int numFiveDie;
+
+    //import pictures of the dice
+    ImageIcon die1 = new ImageIcon(this.getClass().getResource("die1.png"));
+    ImageIcon die2 = new ImageIcon(this.getClass().getResource("die2.png"));
+    ImageIcon die3 = new ImageIcon(this.getClass().getResource("die3.png"));
+    ImageIcon die4 = new ImageIcon(this.getClass().getResource("die4.png"));
+    ImageIcon die5 = new ImageIcon(this.getClass().getResource("die5.png"));
+    ImageIcon die6 = new ImageIcon(this.getClass().getResource("die6.png"));
+
+    
+
 
 
     public yahtzeeLayout()
     {
        frame = new JFrame();
-       frame.setSize(900,600);
+       frame.setSize(1025,700);
        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
        
         JPanel jp = new JPanel();
@@ -61,22 +97,19 @@ public class yahtzeeLayout
         jp3.setLayout(new BorderLayout());
         jp.add(jp3,BorderLayout.CENTER);
 
-        JPanel jp4 = new JPanel();
-        jp4.setLayout(new GridLayout(1,6));
-        JCheckBox jcb7= new JCheckBox("Die 1",false);
-        JCheckBox jcb8= new JCheckBox("Die 2",false);
-        JCheckBox jcb9= new JCheckBox("Die 3",false);
-        JCheckBox jcb10= new JCheckBox("Die 4",false);
-        JCheckBox jcb11= new JCheckBox("Die 5",false);
-        JButton jb12= new JButton("Roll");
-        jp4.add(jcb7);
-        jp4.add(jcb8);
-        jp4.add(jcb9);
-        jp4.add(jcb10);
-        jp4.add(jcb11);
-        jp4.add(jb12);
-        jp3.add(jp4,BorderLayout.SOUTH);
+        
+       
 
+      
+        
+
+        JPanel jp4 = new JPanel();
+        jp4.setLayout(new GridLayout(1,2));
+        final JButton jb12= new JButton("Roll All");
+        JButton jb13 = new JButton("Roll Unselected");
+        jp4.add(jb12);
+        jp4.add(jb13);
+        jp3.add(jp4,BorderLayout.SOUTH);
 
 
         JPanel jp5 = new JPanel();
@@ -91,19 +124,35 @@ public class yahtzeeLayout
         final JLabel jl8 = new JLabel("0");
         JLabel jl9 = new JLabel("Die 5 :");
         final JLabel jl10 = new JLabel("0");
+        final JCheckBox jcb7= new JCheckBox("Die 1",false);
+        final JCheckBox jcb8= new JCheckBox("Die 2",false);
+        final JCheckBox jcb9= new JCheckBox("Die 3",false);
+        final JCheckBox jcb10= new JCheckBox("Die 4",false);
+        final JCheckBox jcb11= new JCheckBox("Die 5",false);
+        jp5.add(jcb7);
         jp5.add(jl1);
-        jp5.add(jl2);
+        jp5.add(lbbbl);  //Die one jl2
+        jp5.add(jcb8);
         jp5.add(jl3);
-        jp5.add(jl4);
+        jp5.add(lbbbl2);   //Die two jl4
+        jp5.add(jcb9);
         jp5.add(jl5);
-        jp5.add(jl6);
+        jp5.add(lbbbl3);   //Die three jl6
+        jp5.add(jcb10);
         jp5.add(jl7);
-        jp5.add(jl8);
+        jp5.add(lbbbl4);   //Die four jl8
+        jp5.add(jcb11);
         jp5.add(jl9);
-        jp5.add(jl10);
+        jp5.add(lbbbl5);      //Die five jl10
         jp3.add(jp5,BorderLayout.CENTER);
+        
+        
+        
+        //final DiceAnimation da=new DiceAnimation();
+        
+        
 
-                jb12.addActionListener(new ActionListener()
+        jb12.addActionListener(new ActionListener()
         {
 
             public void actionPerformed(ActionEvent e)
@@ -116,6 +165,13 @@ public class yahtzeeLayout
                  jl8.setText(Integer.toString(firstRoll[3]));
                  jl10.setText(Integer.toString(firstRoll[4]));
 
+                                 
+
+                 //Display the dice rolling when all dice are rolled
+                 retRoll = firstRoll;
+                 StartDice();
+                 dieFaces();
+
                  for (int t=0; t<ScoreController.rolls.length; t++)
                  {
                      int test = ScoreController.rolls[t].checkValues(firstRoll);
@@ -124,12 +180,68 @@ public class yahtzeeLayout
                          ScoreController.score[t] = test;
                      }
                  }
-
-
+                
+                 
             }
         });
 
 
+
+
+        jb13.addActionListener(new ActionListener()
+        {
+
+            public void actionPerformed(ActionEvent e)
+            {
+                if(!jcb7.isSelected())
+                {
+                    firstRoll[0] = Dice.rollOneDie();
+                    numOneDie = firstRoll[0];
+                }
+
+                if(!jcb8.isSelected())
+                {
+                    firstRoll[1] = Dice.rollOneDie();
+                    numTwoDie = firstRoll[1];
+                }
+
+                if(!jcb9.isSelected())
+                {
+                    firstRoll[2] = Dice.rollOneDie();
+                    numThreeDie = firstRoll[2];
+                }
+
+                if(!jcb10.isSelected())
+                {
+                    firstRoll[3] = Dice.rollOneDie();
+                    numFourDie = firstRoll[3];
+                }
+
+                if(!jcb11.isSelected())
+                {
+                    firstRoll[4] = Dice.rollOneDie();
+                    numFiveDie = firstRoll[4];
+                }
+
+                 jl2.setText(Integer.toString(firstRoll[0]));
+                 jl4.setText(Integer.toString(firstRoll[1]));
+                 jl6.setText(Integer.toString(firstRoll[2]));
+                 jl8.setText(Integer.toString(firstRoll[3]));
+                 jl10.setText(Integer.toString(firstRoll[4]));
+                 firstRoll1 = firstRoll.clone();
+
+                 for (int t=0; t<ScoreController.rolls.length; t++)
+                 {
+                     int test = ScoreController.rolls[t].checkValues(firstRoll1);
+                     if(ScoreController.rolls[t].isPlayed != true)
+                     {
+                         ScoreController.score[t] = test;
+                     }
+                 }
+
+
+            }
+            });
 
 
 
@@ -140,5 +252,168 @@ public class yahtzeeLayout
         
     }
 
+    public void StartDice()
+    {
+        //fframe = new JFrame("Animation Frame");
+        //th = new Thread();
+        //lbbbl = new JLabel();
+        //lbbbl2 = new JLabel();
+        //lbbbl3 = new JLabel();
+        //lbbbl4 = new JLabel();
+        //lbbbl5 = new JLabel();
 
+        //Panel panel = new Panel();
+        //panel.add(lbbbl);
+        //panel.add(lbbbl2);
+        //panel.add(lbbbl3);
+        //panel.add(lbbbl4);
+        //panel.add(lbbbl5);
+
+        //fframe.add(panel, BorderLayout.CENTER);
+        //fframe.setSize(530, 126);
+        //fframe.setVisible(true);
+        //fframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
+         for (int j = 1; j <= 15; j++)
+        {
+            SwingAnimator();
+            if (j == 2)
+            {
+                //j = 0;
+            }
+        }
+    }
+
+    public void SwingAnimator()
+    {    
+        
+
+        //add dice pictures into an array of images
+        ImageIcon diceFace1[] = {die2, die1, die3, die5, die4, die6};
+        ImageIcon diceFace2[] = {die3, die6, die2, die4, die1, die5};
+        ImageIcon diceFace3[] = {die4, die3, die5, die2, die6, die1};
+        ImageIcon diceFace4[] = {die5, die2, die6, die4, die1, die3};
+        ImageIcon diceFace5[] = {die6, die4, die1, die5, die2, die3};
+
+        try
+        {
+            int n = 0;
+
+            
+            int i = 0;
+            while (i < diceFace1.length && n < 2) {
+                ImageIcon images = diceFace1[i];
+                lbbbl.setIcon(images);
+
+                ImageIcon images2 = diceFace2[i];
+                lbbbl2.setIcon(images2);
+
+                ImageIcon images3 = diceFace3[i];
+                lbbbl3.setIcon(images3);
+
+                ImageIcon images4 = diceFace4[i];
+                lbbbl4.setIcon(images4);
+
+                ImageIcon images5 = diceFace5[i];
+                lbbbl5.setIcon(images5);
+
+                
+                i++;
+                n++;
+                th.sleep(150);              
+                                
+            }
+            
+            
+            
+
+
+        } 
+        catch (InterruptedException e)
+        {
+            System.out.println("Interrupt error");
+        }
+    }
+
+    public void dieFaces()
+    {
+        int[] allDice = retRoll;
+
+            //System.out.println(allDice.length);
+
+            //For first dice
+            if (allDice[0] == 1)
+                lbbbl.setIcon(die1);
+            if (allDice[0] == 2)
+                lbbbl.setIcon(die2);
+            if (allDice[0] == 3)
+                lbbbl.setIcon(die3);
+            if (allDice[0] == 4)
+                lbbbl.setIcon(die4);
+            if (allDice[0] == 5)
+                lbbbl.setIcon(die5);
+            if (allDice[0] == 6)
+                lbbbl.setIcon(die6);
+
+
+            //For second dice
+            if (allDice[1] == 1)
+                lbbbl2.setIcon(die1);
+            if (allDice[1] == 2)
+                lbbbl2.setIcon(die2);
+            if (allDice[1] == 3)
+                lbbbl2.setIcon(die3);
+            if (allDice[1] == 4)
+                lbbbl2.setIcon(die4);
+            if (allDice[1] == 5)
+                lbbbl2.setIcon(die5);
+            if (allDice[1] == 6)
+                lbbbl2.setIcon(die6);
+
+
+            //For third dice
+            if (allDice[2] == 1)
+                lbbbl3.setIcon(die1);
+            if (allDice[2] == 2)
+                lbbbl3.setIcon(die2);
+            if (allDice[2] == 3)
+                lbbbl3.setIcon(die3);
+            if (allDice[2] == 4)
+                lbbbl3.setIcon(die4);
+            if (allDice[2] == 5)
+                lbbbl3.setIcon(die5);
+            if (allDice[2] == 6)
+                lbbbl3.setIcon(die6);
+
+
+            //For fouth dice
+            if (allDice[3] == 1)
+                lbbbl4.setIcon(die1);
+            if (allDice[3] == 2)
+                lbbbl4.setIcon(die2);
+            if (allDice[3] == 3)
+                lbbbl4.setIcon(die3);
+            if (allDice[3] == 4)
+                lbbbl4.setIcon(die4);
+            if (allDice[3] == 5)
+                lbbbl4.setIcon(die5);
+            if (allDice[3] == 6)
+                lbbbl4.setIcon(die6);
+
+
+            //For fifth dice
+            if (allDice[4] == 1)
+                lbbbl5.setIcon(die1);
+            if (allDice[4] == 2)
+                lbbbl5.setIcon(die2);
+            if (allDice[4] == 3)
+                lbbbl5.setIcon(die3);
+            if (allDice[4] == 4)
+                lbbbl5.setIcon(die4);
+            if (allDice[4] == 5)
+                lbbbl5.setIcon(die5);
+            if (allDice[4] == 6)
+                lbbbl5.setIcon(die6);
+    }
 }
