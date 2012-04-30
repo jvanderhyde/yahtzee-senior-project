@@ -3,7 +3,6 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.Class;
 import java.util.Arrays;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -25,7 +24,7 @@ public class yahtzeeLayout
     JFrame frame;
     int[] firstRoll;
     int[] firstRoll1;
-    int counter;
+    int counter = 0;
 
 
     public yahtzeeLayout()
@@ -72,7 +71,7 @@ public class yahtzeeLayout
         JPanel jp4 = new JPanel();
         jp4.setLayout(new GridLayout(1,2));
         final JButton jb12= new JButton("Roll All");
-        final JButton jb13 = new JButton("Roll Selected");
+        final JButton jb13 = new JButton("Roll UnSelected");
         jp4.add(jb12);
         jp4.add(jb13);
         jp3.add(jp4,BorderLayout.SOUTH);
@@ -112,13 +111,7 @@ public class yahtzeeLayout
         jp5.add(jl10);
         jp3.add(jp5,BorderLayout.CENTER);
         
-        
-        
-        
-        
-        
-
-      
+   
         jb12.addActionListener(new ActionListener()
         {
 
@@ -140,15 +133,21 @@ public class yahtzeeLayout
                          ScoreController.score[t] = test;
                      }
                  }
-                 counter++;
-                 if (counter<3)
-                     jb12.disable();
+               
+                    
 
                  
             }
         });
+        
 
+        
 
+ 
+
+        if (counter != 3)
+        {
+         jb13.enable();
         jb13.addActionListener(new ActionListener()
         {
 
@@ -193,15 +192,26 @@ public class yahtzeeLayout
                      {
                          ScoreController.score[t] = test;
                      }
+                     
                  }
-                 counter++;
-                 if(counter < 3)
-                     jb13.disable();
+                
                  
-
+                 counter++;
 
             }
             });
+
+        }
+        else if (counter == 3)
+        {
+            jb13.disable();
+            counter=0;
+
+        }
+        
+     
+
+
         
 
 
@@ -209,6 +219,7 @@ public class yahtzeeLayout
 
         frame.add(jp);
         frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
         
     }
